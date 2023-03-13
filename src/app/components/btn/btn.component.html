@@ -1,6 +1,7 @@
 <button
   [type]="buttonType"
-  class="text-white w-full font-medium rounded text-sm bg-[#5AAC44] px-5 py-3"
+  class="text-white w-full font-medium rounded text-sm px-5 py-3"
+  [ngClass]="colors"
 >
   <ng-content></ng-content>
 </button>
