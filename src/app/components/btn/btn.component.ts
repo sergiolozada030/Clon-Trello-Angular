@@ -16,6 +16,8 @@ export class BtnComponent implements OnInit {
     return {
       'bg-success': this.color === 'success',
       'hover:bg-green-600': this.color === 'success',
+      'bg-primary': this.color === 'primary',
+      'hover:bg-sky-600': this.color === 'primary',
     };
   }
 }

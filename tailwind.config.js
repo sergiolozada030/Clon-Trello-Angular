@@ -10,7 +10,7 @@ module.exports = {
     extend: {
       colors: {
       success: '#5AAC44',
-      primary: colors.blue[200]
+      primary: 'bg-sky-700'
      }
     },
   },
