@@ -10,21 +10,77 @@
         />
       </a>
       <div class="flex items-center">
-        <ul class="flex space-x-2 text-sm font-medium">
-          <li><app-btn [color]="'primary'">workspace</app-btn></li>
-          <li><app-btn [color]="'primary'">workspace</app-btn></li>
-          <li><app-btn [color]="'primary'">workspace</app-btn></li>
+        <ul class="flex space-x-2 text-lg font-medium">
+          <li><app-btn [color]="'primary'">Workspace</app-btn></li>
+          <li><app-btn [color]="'primary'">Recent</app-btn></li>
+          <li><app-btn [color]="'primary'">Create</app-btn></li>
         </ul>
       </div>
     </div>
-    <div class="full">
-      <button class="flex rounded-full">
+    <div>
+      <button
+        class="flex rounded-full"
+        (click)="isOpen = !isOpen"
+        type="button"
+        cdkOverlayOrigin
+        #menuUsuario="cdkOverlayOrigin"
+      >
         <img
           class="w-8 h-8 rounded-full"
           src="https://api.lorem.space/image/face?w=400&h=400"
-          alt=""
+          alt="perfil usuario"
         />
       </button>
     </div>
   </div>
 </nav>
+
+<ng-template
+  cdkConnectedOverlay
+  [cdkConnectedOverlayOrigin]="menuUsuario"
+  [cdkConnectedOverlayOpen]="isOpen"
+>
+  <div
+    class="bg-white my-4 z-50 w-60 p-4 border-solid border-1 border-gray-200 rounded shadow text-lg"
+  >
+    <div class="flex justify-between">
+      <h2>Account</h2>
+      <button (click)="isOpen = !isOpen"><b>x</b></button>
+    </div>
+    <hr />
+    <div>
+      <div class="flex gap-2 h-16 items-center">
+        <button
+          class="flex rounded-full w-10"
+          (click)="isOpen = !isOpen"
+          type="button"
+          cdkOverlayOrigin
+          #menuUsuario="cdkOverlayOrigin"
+        >
+          <img
+            class="w-10 h-10 rounded-full"
+            src="https://api.lorem.space/image/face?w=400&h=400"
+            alt="perfil usuario"
+          />
+        </button>
+        <div class="text-sm w-2/3">
+          <p>Sergio Lozada</p>
+          <p class="overflow-hidden text-ellipsis">sergiolozada030@gmail.com</p>
+        </div>
+      </div>
+      <hr />
+      <ul>
+        <li class="pt-2 font-normal"><a href="">Profile</a></li>
+        <li class="pt-2 font-normal"><a href="">Activity</a></li>
+        <li class="pt-2 font-normal"><a href="">Cards</a></li>
+        <li class="pt-2 pb-2 font-normal"><a href="">Settings</a></li>
+      </ul>
+      <hr />
+      <ul>
+        <li class="pt-2 font-normal">
+          <a href="">Log out</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</ng-template>
